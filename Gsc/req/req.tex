@@ -1,0 +1,39 @@
+\documentclass[tikz, dvipdfmx]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-feynhand}
+
+\newcommand{\func}[1]{{(1 /pow(#1 - 0.17,5/3))+0.63}}
+\newcommand{\fund}[1]{{1/#1}}
+
+\usetikzlibrary{intersections,calc,arrows.meta}
+
+\begin{document}
+  \begin{tikzpicture}
+    \coordinate[label=below left:$O$] (O) at (0,0);
+    \coordinate (XS) at (-0.5,0);
+    \coordinate (XL) at (4,0);
+    \coordinate (YS) at (0,-0.5);
+    \coordinate (YL) at (0,4);
+    %\coordinate[label=left:$p$] (P);
+    %\coordinate[label=below:$V_0$] (V0) at(1,0);
+    %\coordinate[label=below:$V$] (V) at (3,0);
+
+    \draw [->, >=stealth] (XS) -- (XL) node[right]{$V$};
+    \draw [->, >=stealth] (YS) -- (YL) node[above]{$p$};
+
+    \begin{scope}[scale = 1.5]
+      \draw[domain=1:2,smooth] plot(\x,\func{\x});
+    \draw[domain=0.5:2,smooth] plot(\x,\fund{\x});
+    \begin{feynhand}
+      \propag[fer] (0.5,2)node[above left]{$A$} to (1,2)node[above right]{$B$};
+      \propag[fer] (2,1) node[right]{$C$} to (2,0.5) node[below]{$D$};
+      \propag[fer] (1.35,\func{1.35}) to (1.55,\func{1.55});
+      \propag[fer] (1.1,\fund{1.1}) to (0.9,\fund{0.9});
+    \end{feynhand}
+    \draw (0.75,2) node[above]{定圧};
+    \draw (2,2) node[below left]{断熱};
+    \draw (2,0.75) node[right]{定積};
+    \draw (0.5,0.5) node[above right]{等温};
+  \end{scope}
+  \end{tikzpicture}
+\end{document}

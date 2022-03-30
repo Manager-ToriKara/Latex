@@ -1,0 +1,51 @@
+\documentclass[tikz,dvipdfmx]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+%\usepackage{tikz-3dplot-circleofspere}
+
+\newcommand\fdcolor{\filldraw[fill=magenta, opacity=0.4,draw=gray, opacity=0.8]}
+\def\p{2.5}
+
+\usetikzlibrary{intersections,calc,arrows.meta}
+\tdplotsetmaincoords{80}{120}
+\begin{document}
+  %\begin{center}
+    \begin{tikzpicture}[tdplot_main_coords]
+      \coordinate [label=above left:L] (X) at (\p,0,0);
+      \coordinate [label=above right:L] (Y) at (0,\p,0);
+      \coordinate [label=above right:L] (Z) at (0,0,\p);
+      \coordinate (XY) at (\p,\p,0);
+      \coordinate (YZ) at (0,\p,\p);
+      \coordinate (ZX) at (\p,0,\p);
+      \coordinate (XYZ) at (\p,\p,\p);
+      %座標系
+      \draw[->] (-1,0,0)--(5,0,0) node[below left]{$x$};
+      \draw[->] (0,-1,0)--(0,5,0) node[below right]{$y$};
+      \draw[->] (0,0,-1)--(0,0,4) node[above]{$z$};
+      %立方体
+      \fdcolor (X) -- (XY) -- (XYZ) -- (ZX) -- cycle;
+      \fdcolor (Y) -- (XY) -- (XYZ) -- (YZ) -- cycle;
+      \fdcolor (Z) -- (ZX) -- (XYZ) -- (YZ) -- cycle;
+      %分子
+      \coordinate(Shift1) at (2,0.5,0.8);
+      \coordinate(Shift2) at (0.6,2,0.8);
+      \coordinate(Shift3) at (0.4,0.5,1.6);
+
+      \draw[->] (Shift1) -- (0.7,0.2,0.3);
+      \draw[->] (Shift2) -- (0.2,2.4,0.9);
+
+      \tdplotsetrotatedcoords{30}{80}{0}
+
+      \tdplotsetrotatedcoordsorigin{(Shift1)}
+      \fill [ball color=yellow, opacity=0.7, tdplot_rotated_coords] (0,0,0) circle(0.1);
+      \tdplotsetrotatedcoordsorigin{(Shift2)}
+      \fill [ball color=yellow, opacity=0.7, tdplot_rotated_coords] (0,0,0) circle(0.1);
+        \tdplotsetrotatedcoordsorigin{(Shift3)}
+         \fill [ball color=yellow, opacity=0.7, tdplot_rotated_coords] (0,0,0) circle(0.1);
+
+         \draw[->] (Shift3) -- (1.8,0.6,2.1);
+      %原点
+      \draw (0,0,0) node[below right]{O};
+    \end{tikzpicture}
+  %\end{center}
+\end{document}

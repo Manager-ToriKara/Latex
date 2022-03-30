@@ -1,0 +1,45 @@
+\documentclass[tikz, dvipdfmx]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,arrows.meta}
+
+\newcommand\s{-0.7}
+\newcommand\p{-0.5}
+
+\begin{document}
+  \begin{tikzpicture}
+    %壁
+    \filldraw[fill=magenta, opacity=0.4,draw=gray, opacity=0.8]
+      (2.4,2) rectangle (2.6,-2);
+    \draw (2.5,1.6)node[right, black]{面};
+
+    %力積
+    \filldraw[red,->,line width=2.5pt, >=Latex]
+      (2.4,-0.2)--(1.5,-0.2) node[below]{$-f \Delta \,t$};
+
+    \filldraw[->,line width=2.5pt, >=Latex]
+      (2.6,-0.2)--(3.5,-0.2) node[below left]{$f \Delta  \,t$};
+
+    %分子前
+    \draw[->, dash pattern=on 3pt off 3pt]
+      (0,-1) -- (0.8,-1) node[below left]{$v_x$};
+    \draw[->, dash pattern=on 3pt off 3pt]
+      (0,-1) -- (0.8,-0.5) node[left]{$v$};
+    \draw[dash pattern=on 3pt off 3pt] (0.8,-1) -- (0.8,-0.5);
+
+    \fill [ball color=yellow, opacity=0.3] (0,-1) circle(0.2);%分子
+
+    %分子後
+    \draw[->] (2.2,0.3) -- (1.4,0.3) node[left]{$-v_x$};
+    \draw[->] (2.2,0.3) -- (1.4,0.8);
+    \draw[dash pattern=on 3pt off 3pt] (1.4,0.3) -- (1.4,0.8);
+
+    \fill [ball color=yellow, opacity=0.7] (2.2,0.3) circle(0.2);%分子
+
+    %軸
+    \coordinate(O) at (-1,1);
+
+    \draw[->] (O) -- ++(0.5,0) node[right]{$x$};
+    \draw[->] (O) -- ++(0,0.5) node[above]{$y$};
+    \draw[->] (O) -- ++(-0.3,-0.3) node[below left]{$z$};
+  \end{tikzpicture}
+\end{document}

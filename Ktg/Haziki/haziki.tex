@@ -1,0 +1,15 @@
+\documentclass[tikz, dvipdfmx]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,arrows.meta}
+
+\def\r{1.4}
+\begin{document}
+  \begin{tikzpicture}
+    \draw (0,0) circle(\r);
+    \draw (-\r,0) -- (\r,0);
+    \draw (0,0) -- (0,-\r);
+    \draw (0,0.5) node{き$\colon 2L$};
+    \draw (0,-0.5) node[left]{は$\colon v_x$};
+    \draw (\r/3,-0.5) node{じ};
+  \end{tikzpicture}
+\end{document}

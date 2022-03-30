@@ -1,0 +1,28 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{tikz}
+\tikzset{cross/.style={preaction={-,draw=white,line width=6pt}}}
+\usetikzlibrary{intersections,calc,arrows.meta}
+\begin{document}
+  \begin{tikzpicture}
+  \node (a) at (0,2,0) {$a$};
+  \node (x) at (2,2,0) {$x$};
+  \node (b) at (0,0,0) {$b$};
+  \node (y) at (2,0,0) {$y$};
+  \node (s) at (0,2,2) {$s$};
+  \node (u) at (2,2,2) {$u$};
+  \node (t) at (0,0,2) {$t$};
+  \node (v) at (2,0,2) {$v$};
+  \draw (a) --(x);
+  \draw (x) --(y);
+  \draw (a) --(b);
+  \draw (b) --(y);
+  \draw[cross] (s) --(u);
+  \draw[cross] (u) --(v);
+  \draw (s) --(t);
+  \draw (t) --(v);
+  \draw (a) --(s);
+  \draw (b) --(t);
+  \draw (x) --(u);
+  \draw (y) --(v);
+  \end{tikzpicture}
+\end{document}
