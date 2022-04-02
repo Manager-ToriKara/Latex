@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2022.3.21)  29 MAR 2022 15:05
+This is e-pTeX, Version 3.14159265-p3.8.2-190908-2.6 (utf8.euc) (TeX Live 2019/Debian) (preloaded format=platex 2022.3.31)  1 APR 2022 20:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -86,10 +86,6 @@ File: l3backend-dvipdfmx.def 2020-02-03 L3 backend support: dvipdfmx
 \g__pdf_backend_object_int=\count177
 \g__pdf_backend_annotation_int=\count178
 )
-
-LaTeX Warning: Unused global option(s):
-    [tikz].
-
 (./reqd.aux)
 \openout1 = `reqd.aux'.
 
@@ -129,12 +125,12 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 
 ] (./reqd.aux) ) 
 Here is how much of TeX's memory you used:
- 1042 strings out of 482863
- 14623 string characters out of 5959218
- 249848 words of memory out of 5000000
- 16410 multiletter control sequences out of 15000+600000
+ 1041 strings out of 482863
+ 14616 string characters out of 5959218
+ 249834 words of memory out of 5000000
+ 16409 multiletter control sequences out of 15000+600000
  537834 words of font info for 51 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
  30i,4n,25p,181b,223s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on reqd.dvi (1 page, 1300 bytes).
+Output written on reqd.dvi (1 page, 1312 bytes).

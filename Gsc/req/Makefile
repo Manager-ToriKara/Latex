@@ -19,3 +19,5 @@ $(FILE2).dvi:$(FILE2).tex
 
 $(FILE2).pdf:$(FILE2).dvi
 	dvipdfmx $<
+
+	
