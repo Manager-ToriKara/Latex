@@ -1,0 +1,56 @@
+\documentclass[tikz, dvipdfmx]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,arrows.meta}
+\begin{document}
+  \begin{tikzpicture}
+    \draw (0,0) node{$A':$仮定};
+    \draw (-0.8,0.5) rectangle (0.8,-0.5);
+    \fill[blue!70!white, opacity=0.7, shift={(0,-2)}, rotate around = {180:(0,1)}] (-0.1,1.3) -- (0.1,1.3) -- (0.1,1) -- (0.3,1) -- (0,0.7) -- (-0.3,1) -- (-0.1,1) -- cycle;
+    \fill[red!70!yellow, opacity=0.7, shift={(0,1)}, rotate around = {180:(0,0.5)}] (-0.1,1.3) -- (0.1,1.3) -- (0.1,1) -- (0.3,1) -- (0,0.7) -- (-0.3,1) -- (-0.1,1) -- cycle;
+    %\fill[green, opacity=0.9, shift={(0,-2.5)}, rotate around={90:(0,2.5)}] (-0.2,1.5) -- (0.2,1.5) -- (0.2,1) -- (0.4,1) -- (0,0.7) -- (-0.4,1) -- (-0.2,1) -- cycle;
+    \draw (-0.3,1) node[left]{$Q_L$};
+    \draw (-0.3,-1) node[left]{$Q_L$};
+    %\draw (2.0,0.3) node[above]{$W = Q_H - Q_L$};
+    \filldraw[fill=red!70!yellow, opacity=0.7] (-1,2.5) rectangle (4,1.5);
+    \draw (1.5,2) node{高温熱源};
+    \draw (2.5,0) node{$B'$};
+    \draw[shift={(2.5,0)}] (-0.8,0.5) rectangle (0.8,-0.5);
+    \filldraw[fill=blue!70!white, opacity=0.7](-1,-2.5) rectangle (4,-1.5);
+    \draw (1.5,-2) node{低温熱源};
+    \fill[red!70!yellow, opacity=0.7, shift={(2.5,0)}] 
+      (-0.4,1.3) -- (0.4,1.3) -- (0.4,1) -- (0.6,1) -- (0,0.7) -- (-0.6,1) -- (-0.4,1) -- cycle;
+    \fill[blue!70!white, opacity=0.7, shift={(2.5,-2)}] 
+      (-0.1,1.3) -- (0.1,1.3) -- (0.1,1) -- (0.3,1) -- (0,0.7) -- (-0.3,1) -- (-0.1,1) -- cycle;
+    \fill[green, opacity=0.9, shift={(2.3,-2.5)}, rotate around={90:(0,2.5)}] 
+      (-0.3,1.3) -- (0.3,1.3) -- (0.3,1) -- (0.5,1) -- (0,0.7) -- (-0.5,1) -- (-0.3,1) -- cycle;
+    \draw (-0.5,1) node[left]{$Q$};
+    \draw (2.25,-1) node[left]{$Q_L$};
+    \draw (3.8,0.4) node[above]{$W$};
+    \draw (2,1) node[left]{$Q_H$};
+
+    \begin{scope}[shift={(0.2,0)}]
+    \draw[thick] (4,0.2) -- (4.8,0.2);
+    \draw[thick] (4,-0.2) -- (4.8,-0.2);
+    \draw[thick] (4.5,0.5) -- (5.0,0) -- (4.5,-0.5);
+    \end{scope}
+
+    \begin{scope}[shift = {(6.4,0)}]
+      \filldraw[fill=red!70!yellow, opacity=0.7] (-1,2.5) rectangle (1,1.5);
+      \draw (0,2) node{高温熱源};
+      
+      \filldraw[fill=blue!70!white, opacity=0.7](-1,-2.5) rectangle (1,-1.5);
+      \draw (0,-2) node{低温熱源};
+      
+      
+      %\draw (0,0) node{};
+      \draw (0,-1) node{第二種永久機関};
+      \draw (-0.8,0.5) rectangle (0.8,-0.5);
+      \fill[red!70!yellow, opacity=0.7] 
+      (-0.3,1.3) -- (0.3,1.3) -- (0.3,1) -- (0.5,1) -- (0,0.7) -- (-0.5,1) -- (-0.3,1) -- cycle;
+      \fill[green, opacity=0.9, shift={(-0.2,-2.5)}, rotate around={90:(0,2.5)}] 
+      (-0.3,1.3) -- (0.3,1.3) -- (0.3,1) -- (0.5,1) -- (0,0.7) -- (-0.5,1) -- (-0.3,1) -- cycle;
+      \draw (2,0.3) node[above]{$W = Q_H-Q_L$};
+      \draw (-0.3,1) node[left]{$Q_H-Q_L$};
+    \end{scope}
+  \end{tikzpicture}
+\end{document}
